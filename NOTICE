@@ -1,0 +1,15 @@
+BarTranslate for Omarchy is an independent native Linux implementation inspired
+by BarTranslate by Thijmen Dam: https://github.com/ThijmenDam/BarTranslate
+Reference revision: c4a5d345d6a3f1c5fa280933d0154421ca0151a3
+
+The final implementation does not include the upstream Swift app, webview,
+CSS or logos. Native QML and a bounded Python translation helper were written
+for this port in 2026. Distributed under GPL-3.0-only; see LICENSE.
+
+Repository scaffold and portable manifest validator were generated with
+Build Omarchy Plugins (MIT), revision
+26ee1e7fc57e4089daea57ff0c51e6a10659e401.
+Its MIT notice is preserved in licenses/build-omarchy-plugins-MIT.txt.
+
+Google supplies translation data. This independent port is not affiliated
+with or endorsed by Google or the original BarTranslate author.

@@ -20,11 +20,17 @@ Includes language detection and 45 searchable target languages. Text and transla
 
 Translations require internet access. Clicking Translate sends the entered text to Google’s public translation endpoint. No API key is required. This endpoint is unofficial and can change or rate-limit requests; errors are shown inside the panel. There is no browser/webview, remote page styling, automatic clipboard monitoring, or automatic translation while typing.
 
-## Local installation
+## Installation
 
 Requires Omarchy 4/Quattro, Python 3 and `wl-clipboard` (normally installed on Omarchy). No GTK or WebKit dependencies.
 
-With this checkout at `~/Source/omarchy-bartranslate`:
+Install from GitHub:
+
+```bash
+omarchy plugin add https://github.com/tcballard/omarchy-plugin-translate --enable
+```
+
+For local development, with this checkout at `~/Source/omarchy-bartranslate`:
 
 ```bash
 ln -s "$HOME/Source/omarchy-bartranslate" "$HOME/.config/omarchy/plugins/io.github.tcballard.bartranslate"
@@ -33,7 +39,7 @@ omarchy-shell shell rescanPlugins
 omarchy plugin enable io.github.tcballard.bartranslate --section right
 ```
 
-The symlink command refuses an existing destination. During local development, rescan plugins after editing the checkout. No public repository, release, or marketplace listing has been created for this build.
+The symlink command refuses an existing destination. During local development, rescan plugins after editing the checkout. The source repository is [tcballard/omarchy-plugin-translate](https://github.com/tcballard/omarchy-plugin-translate). No tagged release or marketplace listing is claimed.
 
 ## Commands
 
@@ -57,6 +63,14 @@ See [verification](docs/verification.md) and [design](docs/design.md). The suppl
 
 ## Remove
 
+For a normal GitHub installation:
+
+```bash
+omarchy plugin remove io.github.tcballard.bartranslate
+```
+
+For the local development symlink:
+
 ```bash
 omarchy plugin disable io.github.tcballard.bartranslate
 unlink "$HOME/.config/omarchy/plugins/io.github.tcballard.bartranslate"
@@ -65,4 +79,4 @@ omarchy-shell shell rescanPlugins
 
 These commands preserve the source checkout. Disabling unloads the widget and its request process. No translation history or browser profile needs cleanup.
 
-GPL-3.0-only. See [LICENSE](LICENSE) and [NOTICE](NOTICE). Suggested topics when publishing: `omarchy`, `omarchy-plugin`, `translation`.
+GPL-3.0-only. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

@@ -22,3 +22,17 @@ Not exercised: multiple physical monitors, speech (not implemented), network
 outages/rate limits through the UI, alternate themes. Rate limits were observed
 while choosing the endpoint and are handled explicitly. This is an unofficial
 Google endpoint and availability is not guaranteed.
+
+## 0.1.1 automatic detection regression — 16 September 2026
+
+Google returned `en` with confidence `0.7584857` and unchanged text for
+`Bonjour` in automatic mode. The new bounded local ELD fallback resolves that
+case to French and retries once with `sl=fr`, preserving the original input.
+Live result: `Bonjour` → `Good morning`, detected `fr`.
+
+The suite now has 11 passing tests, including the captured failure, case and
+punctuation, explicit source preservation, confident English, ambiguous short
+text and successful translations without a retry. The ELD model and adapted
+code are Apache-2.0 with pinned provenance. The QML source picker displays the
+detected name without changing automatic mode, and hides stale detection when
+input or languages change. Earlier v0.4.0 review limitations still apply.

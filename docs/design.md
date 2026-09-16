@@ -12,3 +12,9 @@
 - Google may process submitted text under its own policies. The plugin has no webview, remote script execution, credential storage, package installation or privileged operations.
 - Deterministic preview uses sample French/English text. Portable tests cover URL encoding, segment parsing and invalid/oversized data. Live verification covers actual host loading, translation and dismissal.
 - Deferred: persistent language preferences, additional translation providers, speech and history. A multi-monitor host was not available for runtime testing.
+- Since 0.1.1, automatic mode checks unchanged, low-confidence Google results
+  with the bundled ELD L60 model for text up to 40 characters. A clearly separated
+  local candidate triggers at most one same-provider retry within the existing
+  deadline. Ambiguity prompts manual language selection; explicit source choices
+  and confident/successful translations are untouched. The local model requires
+  no new package, network service or runtime download.

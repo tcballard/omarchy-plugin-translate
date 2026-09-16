@@ -31,6 +31,7 @@ Ui.Panel {
   readonly property color fg: Color.popups.text
   readonly property color muted: Qt.alpha(fg, 0.55)
   readonly property bool stale: result !== "" && (input.text !== requestText || sourceLanguage !== requestSource || targetLanguage !== requestTarget)
+  readonly property bool detectionCurrent: sourceLanguage === "auto" && result !== "" && !stale && detectedLanguage !== ""
 
   function open() { controller.show(); Qt.callLater(function() { input.forceActiveFocus() }) }
   function close() {
@@ -168,7 +169,7 @@ Ui.Panel {
             Layout.fillWidth: true
             Layout.preferredWidth: 1
             label: "FROM"; value: root.sourceLanguage
-            options: [{value: "auto", label: "Detect language"}].concat(Languages.options)
+            options: [{value: "auto", label: root.detectionCurrent ? Languages.nameFor(root.detectedLanguage) + " (detected)" : "Detect language"}].concat(Languages.options)
             enabled: !root.busy
             onChanged: function(value) { root.sourceLanguage = value }
           }

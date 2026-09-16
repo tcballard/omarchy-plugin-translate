@@ -16,7 +16,7 @@ Inspired by [Thijmen Dam’s BarTranslate](https://github.com/ThijmenDam/BarTran
 - Use **Copy** for the translation and the swap button to reverse languages.
 - **Escape** or an outside click dismisses the panel and cancels an active request.
 
-Includes language detection and 45 searchable target languages. Text and translation stay in memory while the widget is loaded; no translation history is written to disk. Your active Omarchy theme controls the panel appearance, including transparency.
+Includes language detection and 45 searchable target languages. After translation, the source selector shows the detected language. A bundled local character model checks short text when Google returns it unchanged with low confidence; ambiguous cases ask you to select a source language. Text and translation stay in memory while the widget is loaded; no translation history is written to disk. Your active Omarchy theme controls the panel appearance, including transparency.
 
 Translations require internet access. Clicking Translate sends the entered text to Google’s public translation endpoint. No API key is required. This endpoint is unofficial and can change or rate-limit requests; errors are shown inside the panel. There is no browser/webview, remote page styling, automatic clipboard monitoring, or automatic translation while typing.
 

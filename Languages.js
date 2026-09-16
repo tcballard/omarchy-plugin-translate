@@ -1,4 +1,10 @@
 .pragma library
+function nameFor(code) {
+  if (code === "zh") return "Chinese"
+  for (var i = 0; i < options.length; i++)
+    if (options[i].value === code) return options[i].label
+  return code
+}
 var options = [
   {
     "value": "ar",

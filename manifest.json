@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.tcballard.bartranslate",
   "name": "BarTranslate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "tcballard",
   "license": "GPL-3.0-only",
   "description": "A native, theme-aware translation panel for the Omarchy bar.",

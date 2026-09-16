@@ -13,3 +13,9 @@ Its MIT notice is preserved in licenses/build-omarchy-plugins-MIT.txt.
 
 Google supplies translation data. This independent port is not affiliated
 with or endorsed by Google or the original BarTranslate author.
+
+Short-text fallback uses the ELD L60 statistical model and adapted ngram/scoring
+code, Copyright 2023 Nito T.M., Apache-2.0.
+Upstream: https://github.com/nitotm/efficient-language-detector-py
+Revision: 455280c2e4b3e2102f18191015ad8c48e4b7ec12 (ELD 1.0.8).
+See licenses/eld-Apache-2.0.txt and data/README.md for modifications/provenance.

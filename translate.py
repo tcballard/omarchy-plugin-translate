@@ -42,13 +42,33 @@ def parse_response(body):
         if not result or len(result) > MAX_BYTES:
             raise ValueError()
         detected = data[2] if len(data) > 2 and isinstance(data[2], str) and re.fullmatch(r'[a-zA-Z-]{2,12}', data[2]) else ''
-        return {'ok': True, 'text': result, 'detected': detected}
+        response = {'ok': True, 'text': result, 'detected': detected}
+        if len(data) > 6 and type(data[6]) in (int, float) and 0 <= data[6] <= 1:
+            response['confidence'] = data[6]
+        return response
     except (ValueError, TypeError, IndexError, KeyError):
         raise ValueError('Google returned an unexpected response. Try again later.') from None
 
 
 def translate(data, opener=urllib.request.urlopen):
     text, source, target = validate(data)
+    result = request_translation(text, source, target, opener)
+    if (source == 'auto' and result['detected'] == target
+            and result['text'].strip().casefold() == text.strip().casefold()
+            and result.get('confidence', 1) < 0.9):
+        from detection import detect_short
+        candidate = detect_short(text)
+        if candidate and candidate != target:
+            # One retry, to the same service, preserving the user's exact text.
+            # The existing process-wide deadline also covers this request.
+            result = request_translation(text, candidate, target, opener)
+            result['detected'] = candidate
+        elif candidate is None:
+            return {'ok': False, 'error': 'Language detection is uncertain for this text. Choose a source language and translate again.'}
+    return result
+
+
+def request_translation(text, source, target, opener):
     query = urllib.parse.urlencode({'client': 'dict-chrome-ex', 'sl': source, 'tl': target, 'dt': 't', 'q': text})
     request = urllib.request.Request(ENDPOINT + '?' + query, headers={'User-Agent': 'BarTranslate-Omarchy/0.1', 'Accept': 'application/json'})
     with opener(request, timeout=12) as response:

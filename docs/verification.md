@@ -35,4 +35,22 @@ punctuation, explicit source preservation, confident English, ambiguous short
 text and successful translations without a retry. The ELD model and adapted
 code are Apache-2.0 with pinned provenance. The QML source picker displays the
 detected name without changing automatic mode, and hides stale detection when
-input or languages change. Earlier v0.4.0 review limitations still apply.
+input or languages change. The runtime-testing limitations recorded above still apply.
+
+## Marketplace acceptance — 16 September 2026
+
+Status rechecked on 17 September 2026:
+
+- [Public BarTranslate listing](https://omarchyplugins.com/plugin.html?id=io.github.tcballard.bartranslate): version 0.1.1, available, snapshot verified.
+- [Acceptance issue #7192](https://github.com/omacom/omarchy-plugin-marketplace/issues/7192) is closed with `listed` and `approved-and-verified` labels. Its publication comment identifies the verification method as `automated`.
+- [Marketplace commit](https://github.com/omacom/omarchy-plugin-marketplace/commit/0d685d01914eb6052e42a1328ca53f171a16b8df) records the listing. The current official catalog records verification of `74c8881bf96311cda119b2f914f9f14522351fe1` on 16 September 2026.
+- Repository `main` was still at that snapshot when checked; there were no Git tags or published GitHub releases. The version in the manifest and changelog does not establish a tagged release.
+
+Verification applies only to the recorded snapshot. Automated marketplace checks
+are not a security audit, certification, warranty or approval of subsequent
+commits. The listing’s installation command clones current upstream source;
+it does not pin the verified snapshot.
+
+This documentation update adds no live installation or desktop-test evidence.
+The recorded Omarchy revision, Quickshell version and runtime-testing limits
+above remain the scope of the compatibility evidence.

@@ -1,6 +1,14 @@
 # Changelog
 
+These headings record plugin versions, not Git tags or GitHub releases. As checked
+on 17 September 2026, neither tags nor published GitHub releases exist.
+
 ## 0.1.1
+
+Listed in the [official Omarchy plugin marketplace](https://omarchyplugins.com/plugin.html?id=io.github.tcballard.bartranslate)
+on 16 September 2026. Automated verification applies to snapshot
+`74c8881bf96311cda119b2f914f9f14522351fe1` only, not later commits or a
+blanket security approval. See [acceptance evidence](docs/verification.md#marketplace-acceptance--16-september-2026).
 
 - Correct short-text automatic detection when Google misclassifies inputs such
   as “Bonjour” as English and returns them unchanged. A bundled local model

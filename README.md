@@ -24,11 +24,13 @@ Translations require internet access. Clicking Translate sends the entered text 
 
 Requires Omarchy 4/Quattro, Python 3 and `wl-clipboard` (normally installed on Omarchy). No GTK or WebKit dependencies.
 
-Install from GitHub:
+Available in the [official Omarchy plugin marketplace](https://omarchyplugins.com/plugin.html?id=io.github.tcballard.bartranslate). Install using the listing’s command:
 
 ```bash
-omarchy plugin add https://github.com/tcballard/omarchy-plugin-translate --enable
+omarchy plugin add https://github.com/tcballard/omarchy-plugin-translate.git --enable
 ```
+
+This command installs the current upstream repository, which may differ from the verified marketplace snapshot.
 
 For local development, with this checkout at `~/Source/omarchy-bartranslate`:
 
@@ -39,7 +41,13 @@ omarchy-shell shell rescanPlugins
 omarchy plugin enable io.github.tcballard.bartranslate --section right
 ```
 
-The symlink command refuses an existing destination. During local development, rescan plugins after editing the checkout. The source repository is [tcballard/omarchy-plugin-translate](https://github.com/tcballard/omarchy-plugin-translate). No tagged release or marketplace listing is claimed.
+The symlink command refuses an existing destination. During local development, rescan plugins after editing the checkout. The source repository is [tcballard/omarchy-plugin-translate](https://github.com/tcballard/omarchy-plugin-translate).
+
+## Marketplace status
+
+BarTranslate 0.1.1 was listed on 16 September 2026. The marketplace marked snapshot [`74c8881bf96311cda119b2f914f9f14522351fe1`](https://github.com/tcballard/omarchy-plugin-translate/commit/74c8881bf96311cda119b2f914f9f14522351fe1) verified using automated checks. Verification applies only to that snapshot; it is not a security audit or blanket approval of later commits. See the [acceptance issue](https://github.com/omacom/omarchy-plugin-marketplace/issues/7192) and [recorded evidence](docs/verification.md#marketplace-acceptance--16-september-2026).
+
+As checked on 17 September 2026, the repository has no Git tags or published GitHub releases. Marketplace availability and the 0.1.1 manifest/changelog version are separate from a tagged release.
 
 ## Commands
 
